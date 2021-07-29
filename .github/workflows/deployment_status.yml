@@ -1,0 +1,13 @@
+name: deployment_status check
+on: [deployment_status]
+jobs:
+  Debug:
+    name: GitHub Context
+    runs-on: ubuntu-18.04
+    steps:
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: |
+        echo "$GITHUB_CONTEXT"
+        printenv
